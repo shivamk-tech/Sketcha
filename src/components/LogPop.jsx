@@ -38,7 +38,6 @@ const LogPop = ({ Log, setLog }) => {
 
     console.log(width);
 
-
     return (
         <div className={`text-white h-full w-full inset-0 bg-black/50 fixed z-[1000000] flex items-center justify-center transition-opacity duration-300 ${Log ? 'opacity-100' : 'opacity-0 pointer-events-none'} `} onClick={() => setLog(false)}>
             <div className={`h-120 w-85 sm:w-100 bg-[#0f0f1a] relative flex flex-col items-center rounded-2xl transition-all duration-300 ease-in-out ${Log ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-0 translate-y-2'}`} onClick={(e) => e.stopPropagation()}>

@@ -14,6 +14,6 @@ html, body {
   scrollbar-width: none;     
 }
 
-.scrollbar-none::-webkit-scrollbar {
+.scrollbar-none::-webkit-scrollbar{
   display: none;            
 }

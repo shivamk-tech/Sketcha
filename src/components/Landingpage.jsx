@@ -8,7 +8,10 @@ import tool2 from '../assets/tool2.png'
 import tool3 from '../assets/tool3.png'
 import tool8 from '../assets/tool8.png'
 import { Github, Twitter, Linkedin, Mail, Zap, Layout, Share2, Palette, Layers, Download, Check } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import PaymentModal from './PaymentModal'
+import About from '../components/About'
+import Pricing from '../components/Pricing'
 
 const Landingpage = ({ openLog }) => {
     const [paymentModal, setPaymentModal] = useState({ open: false, plan: '', amount: 0 });
@@ -23,19 +26,19 @@ const Landingpage = ({ openLog }) => {
     };
 
     return (
-        <div className='w-full h-full'>
-            <div className='pr-10 pl-10 pt-38 flex flex-col lg:flex-row w-full'>
-            <div className=" text-white p-2  md:p-10 w-full lg:max-w-2xl">
+        <div className='w-full min-h-screen'>
+            <div className='pr-10 pl-3 sm:pl-10 pt-32 md:pt-40 flex flex-col lg:flex-row w-full'>
+            <div className=" text-white p-2  sm:p-10 w-full lg:max-w-2xl">
                 <div>
                     <p className="uppercase tracking-widest text-purple-400 font-medium text-sm">Your Digital Whiteboard Tool</p>
                     <div className="mt-4 space-y-2">
-                        <p className="text-8xl font-bold leading-tight">Sketch</p>
-                        <p className="text-8xl font-bold leading-tight">Ideas</p>
-                        <p className="text-8xl font-bold leading-tight bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Faster</p>
+                        <p className="text-7xl sm:text-8xl font-bold leading-tight">Sketch</p>
+                        <p className="text-7xl sm:text-8xl font-bold leading-tight">Ideas</p>
+                        <p className="text-7xl sm:text-8xl font-bold leading-tight bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Faster</p>
                     </div>
                     <p className="mt-6 max-w-lg text-base text-slate-400 leading-relaxed">Sketcha helps you turn thoughts into visuals with a simple, fast, and flexible whiteboard—perfect for brainstorming, planning, and collaboration.</p>
                 </div>
-                <a href="/#pricing" className=" mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold text-base hover:from-purple-400 hover:to-indigo-400 active:scale-95 shadow-lg shadow-purple-500/30 transition-all duration-200">Get Started<span className="text-lg">→</span></a>
+                <Link to="/home" className=" mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold text-base hover:from-purple-400 hover:to-indigo-400 active:scale-95 shadow-lg shadow-purple-500/30 transition-all duration-200">Get Started<span className="text-lg">→</span></Link>
             </div>
 
             <div className='w-full lg:w-2/3 grid grid-cols-3 gap-2 auto-rows-[135px]'>
@@ -136,95 +139,10 @@ const Landingpage = ({ openLog }) => {
             </div>
 
             {/* About Section */}
-            <div id="about" className="w-full max-w-7xl mx-auto px-10 py-24 border-t border-white/10">
-                <div className="flex flex-col md:flex-row gap-16 items-center">
-                    <div className="flex-1">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">About Sketcha</h2>
-                        <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                            We believe that great ideas start with a simple sketch. Sketcha is designed to remove the friction between your thoughts and the screen.
-                        </p>
-                        <p className="text-slate-400 text-lg leading-relaxed">
-                            Our mission is to provide a collaborative, infinite workspace where creativity knows no bounds. From solo brainstorming sessions to team workshops, Sketcha adapts to your workflow.
-                        </p>
-                    </div>
-                    <div className="flex-1 grid grid-cols-2 gap-4">
-                        <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10 text-center hover:border-purple-500/50 transition-colors">
-                            <h3 className="text-3xl font-bold text-purple-400 mb-2">Fast</h3>
-                            <p className="text-slate-500 text-sm">Performance First</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10 text-center hover:border-blue-500/50 transition-colors">
-                            <h3 className="text-3xl font-bold text-blue-400 mb-2">Secure</h3>
-                            <p className="text-slate-500 text-sm">Enterprise Grade</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10 text-center hover:border-pink-500/50 transition-colors">
-                            <h3 className="text-3xl font-bold text-pink-400 mb-2">Open</h3>
-                            <p className="text-slate-500 text-sm">For Everyone</p>
-                        </div>
-                        <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10 text-center hover:border-green-500/50 transition-colors">
-                            <h3 className="text-3xl font-bold text-green-400 mb-2">Free</h3>
-                            <p className="text-slate-500 text-sm">To Start</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <About/>
 
             {/* Pricing Section */}
-            <div id="pricing" className="w-full max-w-7xl mx-auto px-10 py-24">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Simple Pricing</h2>
-                    <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-                        Choose the plan that fits your needs. <span onClick={openLog} className="text-purple-400 font-medium cursor-pointer hover:underline">Free access for 2 days.</span>
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    {/* Weekly Plan */}
-                    <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/10 flex flex-col hover:border-purple-500/50 transition-all relative group">
-                        <h3 className="text-xl font-semibold text-white mb-2">Weekly</h3>
-                        <div className="flex items-baseline gap-1 mb-4">
-                            <span className="text-4xl font-bold text-white">₹50</span>
-                            <span className="text-slate-400">/week</span>
-                        </div>
-                        <p className="text-slate-400 mb-6 text-sm">Perfect for short sprints.</p>
-                        <ul className="space-y-3 mb-8 flex-1">
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> All Pro features</li>
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> Unlimited boards</li>
-                        </ul>
-                        <button onClick={() => handlePayment('Weekly', 50)} className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold transition-all">Get Started</button>
-                    </div>
-
-                    {/* Monthly Plan */}
-                    <div className="p-8 rounded-2xl bg-slate-900/80 border border-purple-500 flex flex-col relative transform md:-translate-y-4 shadow-2xl shadow-purple-500/20">
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-1 rounded-full text-sm font-medium whitespace-nowrap">Most Popular</div>
-                        <h3 className="text-xl font-semibold text-white mb-2">Monthly</h3>
-                        <div className="flex items-baseline gap-1 mb-4">
-                            <span className="text-4xl font-bold text-white">₹100</span>
-                            <span className="text-slate-400">/month</span>
-                        </div>
-                        <p className="text-slate-400 mb-6 text-sm">Ideal for ongoing projects.</p>
-                        <ul className="space-y-3 mb-8 flex-1">
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> Everything in Weekly</li>
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> Team collaboration</li>
-                        </ul>
-                        <button onClick={() => handlePayment('Monthly', 100)} className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold hover:from-purple-400 hover:to-indigo-400 shadow-lg shadow-purple-500/25 transition-all">Get Started</button>
-                    </div>
-
-                    {/* Yearly Plan */}
-                    <div className="p-8 rounded-2xl bg-slate-900/50 border border-white/10 flex flex-col hover:border-purple-500/50 transition-all relative group">
-                        <h3 className="text-xl font-semibold text-white mb-2">Yearly</h3>
-                        <div className="flex items-baseline gap-1 mb-4">
-                            <span className="text-4xl font-bold text-white">₹300</span>
-                            <span className="text-slate-400">/year</span>
-                        </div>
-                        <p className="text-slate-400 mb-6 text-sm">Best value for long-term.</p>
-                        <ul className="space-y-3 mb-8 flex-1">
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> Everything in Monthly</li>
-                            <li className="flex items-center gap-3 text-slate-300 text-sm"><Check size={16} className="text-purple-400" /> Priority support</li>
-                        </ul>
-                        <button onClick={() => handlePayment('Yearly', 300)} className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold transition-all">Get Started</button>
-                    </div>
-                </div>
-            </div>
+            <Pricing openLog={openLog} handlePayment={handlePayment} />
 
             <footer className="w-full border-t border-white/10 bg-black/20 backdrop-blur-sm mt-20 text-white">
                 <div className="max-w-7xl mx-auto px-10 py-12">
